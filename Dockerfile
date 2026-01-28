@@ -22,8 +22,8 @@ WORKDIR /clawdbot
 
 # Pin to a known ref (tag/branch). If it doesn't exist, fall back to main.
 ARG CLAWDBOT_GIT_REF=main
-RUN git clone --depth 1 --branch "${CLAWDBOT_GIT_REF}" https://github.com/clawdbot/clawdbot.git .
-
+RUN git clone https://github.com/moltbot/moltbot.git . && \
+    git checkout 34653e4b
 # Patch: relax version requirements for packages that may reference unpublished versions.
 # Scope this narrowly to avoid surprising dependency mutations.
 RUN set -eux; \
